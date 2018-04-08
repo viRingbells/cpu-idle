@@ -2,7 +2,7 @@
 
 const _       = require('lodash');
 const assert  = require('assert');
-const debug   = require('debug')('cpuload');
+const debug   = require('debug')('cpu-idle');
 const delay   = require('delay');
 const os      = require('os');
 
@@ -16,7 +16,7 @@ const TIMES_TO_IDLE   = Symbol('TIMES_TO_IDLE');
 const WATCHES         = Symbol('WATCHES');
 const MEASURE_WATCH_NEXT  = Symbol('MEASURE_WATCH_NEXT');
 
-class CPULoad {
+class CPUIdle {
 
     constructor(config = {}) {
         assert(config instanceof Object, 'Invalid type of config, should be an object');
@@ -87,12 +87,12 @@ class CPULoad {
 
     idle(name = DEFAULT_NAME) {
         const state = this.state(name);
-        return CPULoad[TIMES_TO_IDLE](state);
+        return CPUIdle[TIMES_TO_IDLE](state);
     }
 
     async measure(duration) {
         duration = duration || this[CONFIG].measure_duration;
-        return CPULoad.measure(duration);
+        return CPUIdle.measure(duration);
     }
 
     static async measure(duration) {
@@ -114,8 +114,8 @@ class CPULoad {
     }
 
     static async idle(duration = DEFAULT_MEASURE_DURATION) {
-        const times = await CPULoad.measure(duration);
-        return CPULoad[TIMES_TO_IDLE](times);
+        const times = await CPUIdle.measure(duration);
+        return CPUIdle[TIMES_TO_IDLE](times);
     }
 
     static [TIMES_TO_IDLE](times) {
@@ -146,4 +146,4 @@ function getIncrement(from, to) {
     return increment;
 }
 
-module.exports = CPULoad;
+module.exports = CPUIdle;

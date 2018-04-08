@@ -1,5 +1,5 @@
 {
-  "name": "cpuload",
+  "name": "cpu-idle",
   "version": "1.0.0",
   "description": "Get cpu load info",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viRingbells/cpuload.git"
+    "url": "git+https://github.com/viRingbells/cpu-idle.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/viRingbells/cpuload/issues"
+    "url": "https://github.com/viRingbells/cpu-idle/issues"
   },
-  "homepage": "https://github.com/viRingbells/cpuload#readme",
+  "homepage": "https://github.com/viRingbells/cpu-idle#readme",
   "dependencies": {
     "debug": "^3.1.0",
     "delay": "^2.0.0",

@@ -1,23 +1,23 @@
 'use strict';
 
 const delay   = require('delay');
-const CPULoad = require('./');
+const CPUIdle = require('./');
 
-const cpuload = new CPULoad();
+const cpuIdle = new CPUIdle();
 
 (async () => {
-    console.log(await CPULoad.measure(1000));
-    console.log(await CPULoad.idle(1000));
+    console.log(await CPUIdle.measure(1000));
+    console.log(await CPUIdle.idle(1000));
 
-    cpuload.watch();
-    console.log(cpuload.state(), cpuload.idle());
+    cpuIdle.watch();
+    console.log(cpuIdle.state(), cpuIdle.idle());
     await delay(1200);
-    console.log(cpuload.state(), cpuload.idle());
+    console.log(cpuIdle.state(), cpuIdle.idle());
     await delay(1000);
-    console.log(cpuload.state(), cpuload.idle());
-    cpuload.stopWatch();
+    console.log(cpuIdle.state(), cpuIdle.idle());
+    cpuIdle.stopWatch();
     try {
-        cpuload.idle();
+        cpuIdle.idle();
     }
     catch (e) {
         console.log('Got an error: ' + e.message);        
