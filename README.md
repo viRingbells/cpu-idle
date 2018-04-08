@@ -1,4 +1,4 @@
-# cpuload
+# CPU Idle
 Get cpu load info
 
 # Usage
@@ -6,22 +6,22 @@ Get cpu load info
 Measure the cpu load directly
 
 ```
-const CPULoad = require('cpuload');
+const CPUIdle = require('cpu-idle');
 
-const idle = await CPULoad.idle(1000); // get the average load in the last 1000ms
+const idle = await CPUIdle.idle(1000); // get the average load in the last 1000ms
 
-const detail = await CPULoad.measure(1000); // get the detailed cpu times in the last 1000ms
+const detail = await CPUIdle.measure(1000); // get the detailed cpu times in the last 1000ms
 ```
 
 Get the cpu load instantly
 
 ```
-const CPULoad = require('cpuload');
+const CPUIdle = require('cpu-idle');
 
-const cpuload = new CPULoad();
-cpuload.watch();
+const cpuIdle = new CPUIdle();
+cpuIdle.watch();
 
 await delay(5000);
 
-const idle = cpuload.idle();
+const idle = cpuIdle.idle();
 ```
