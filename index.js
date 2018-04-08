@@ -78,7 +78,11 @@ class CPULoad {
     }
 
     state(name = DEFAULT_NAME) {
-        return this[WATCHES][name] && this[WATCHES][name].state;
+        const state = this[WATCHES][name] && this[WATCHES][name].state;
+        if (!state) {
+            throw new Error('Can not get state before watching');
+        }
+        return state;
     }
 
     idle(name = DEFAULT_NAME) {

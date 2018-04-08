@@ -10,13 +10,17 @@ const cpuload = new CPULoad();
     console.log(await CPULoad.idle(1000));
 
     cpuload.watch();
+    console.log(cpuload.state(), cpuload.idle());
     await delay(1200);
     console.log(cpuload.state(), cpuload.idle());
     await delay(1000);
     console.log(cpuload.state(), cpuload.idle());
     cpuload.stopWatch();
-    await delay(1000);
-    console.log(cpuload.state());
-    await delay(5000);
+    try {
+        cpuload.idle();
+    }
+    catch (e) {
+        console.log('Got an error: ' + e.message);        
+    }
 })().catch(e => console.log(e.stack));
 
