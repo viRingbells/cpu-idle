@@ -11,6 +11,7 @@ const DEFAULT_NAME = 'default';
 const DEFAULTS  = {
     measure_duration: 1000,
 };
+const PRECISION = 10000;
 const CONFIG          = Symbol('CONFIG');
 const TIMES_TO_IDLE   = Symbol('TIMES_TO_IDLE');
 const WATCHES         = Symbol('WATCHES');
@@ -119,11 +120,13 @@ class CPUIdle {
     }
 
     static [TIMES_TO_IDLE](times) {
-        if (!(times instanceof Object) || !times.idle || !times.total) {
+        if (!(times instanceof Object)
+            || !Number.isInteger(times.idle) || times.idle <= 0
+            || !Number.isInteger(times.total) || times.total <= 0) {
             return 0.0;
         }
-        const percent = Math.round(100 * times.idle / times.total) / 100;
-        // console.log(times.idle, times.total, percent);
+        const percent = Math.round(PRECISION * times.idle / times.total) / PRECISION;
+        console.log(times.idle, times.total, percent);
         return percent;
     }
 
