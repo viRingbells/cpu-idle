@@ -49,6 +49,9 @@ class CPULoad {
     }
 
     stopWatch(...names) {
+        if (names.length === 0) {
+            names = [DEFAULT_NAME];
+        }
         for (const name of names) {
             if (!this[WATCHES].hasOwnProperty(name)) {
                 continue;

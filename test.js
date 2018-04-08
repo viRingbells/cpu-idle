@@ -14,7 +14,9 @@ const cpuload = new CPULoad();
     console.log(cpuload.state(), cpuload.idle());
     await delay(1000);
     console.log(cpuload.state(), cpuload.idle());
+    cpuload.stopWatch();
     await delay(1000);
-    console.log(cpuload.state(), cpuload.idle());
+    console.log(cpuload.state());
+    await delay(5000);
 })().catch(e => console.log(e.stack));
 
