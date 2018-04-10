@@ -1,6 +1,6 @@
 {
   "name": "cpu-idle",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get cpu load info",
   "main": "index.js",
   "scripts": {

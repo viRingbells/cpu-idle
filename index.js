@@ -126,7 +126,6 @@ class CPUIdle {
             return 0.0;
         }
         const percent = Math.round(PRECISION * times.idle / times.total) / PRECISION;
-        console.log(times.idle, times.total, percent);
         return percent;
     }
 
